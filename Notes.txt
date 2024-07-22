@@ -1,0 +1,17 @@
+Do not Use wait for time out :
+ await page.waitForTimeout()
+
+ Instead use isVisible or State Visible 
+ Examples:
+1. isVisible
+
+const iUndersnt = await page.getByText("I Understand").isVisible()
+    if (iUndersnt) {
+        await page.getByText("I Understand").click()
+    }
+
+2. Sate Visible
+
+    const test = await page.getByText("I Understand")
+    await test.waitFor({state : "visible"}) // check this 
+    await page.getByText("I Understand").click()
